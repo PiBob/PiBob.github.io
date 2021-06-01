@@ -1,0 +1,82 @@
+@font-face {
+	font-family: 'Avenir Next Cyr Thin';
+	src: url('AvenirNextCyr-Thin.eot');
+	src: url('AvenirNextCyr-Thin.eot?#iefix') format('embedded-opentype'),
+	url('AvenirNextCyr-Thin.woff') format('woff'),
+	url('AvenirNextCyr-Thin.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+	background-color: #f4f5f6;
+}
+*{
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+}
+
+header{
+	width: 100%;
+	height: 62px;
+	background-color: #40464f;
+	display: inline-block;
+}
+.logo-header{
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 20px;
+	float:left;
+}
+.header-title{
+	color: white;
+	margin-top:20px;
+	font-family: 'Playfair Display', serif;
+	float: left;
+}
+.header-menu{
+	margin-left: 33%;
+	width: 50%;
+	margin-top: 10px;
+}
+.menu{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: white;
+	transition: 0.5s;
+}
+li{
+	float: left;
+	padding: 10px 45px;	
+}
+a:hover{
+	color: #e8b32e;
+	border-bottom: 1px solid #e8b32e;
+}
+footer{
+	width: 100%;
+	height: 110px;
+	background-color: #40464f;
+	position: absolute;
+	bottom: 0;
+}
+.logo-footer{
+	position: absolute;
+	left: 50%;
+	margin-top: 20px;
+}
+.footer-title{
+	position: absolute;
+	color: #9aa2ac;
+	margin-top: 20px;
+	font-size: 10px;
+	left: 42.5%;
+	top: 50px;
+}
+
+
+
+
+
