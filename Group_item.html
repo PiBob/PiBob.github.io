@@ -16,11 +16,28 @@
 			height: 127px;
 			border-radius: 5px;
 			box-shadow: 0 1px 2px 0 #bcc1c8;
-			background-color: #ffffff;
+			background-color: white;
 			margin-top: 40px;
+			display: flex;
+			flex-direction: row;
+			align-self: center;
 		}
 		.image{
-			margin: auto 0 auto 30px;
+			margin: 30px;
+			display: flex;
+		}
+		.txt1{
+			font-size: 18px;
+			color: #40464f;
+		}
+		.text{
+			display: flex;
+			flex-direction: column;
+			align-self: center;
+		}
+		.txt2{
+			margin-top: 20px;
+			margin-bottom: 20px;
 		}
 	</style>
 </head>
@@ -42,7 +59,13 @@
 	<div class="middle-part">
 		<h1>Група ХХ-ХХ-ХХ</h1>
 		<div class="first-block">
-			<img src="self-improvement-black-48-dp.png" alt="" class="image">
+			<div class="img-block">
+				<img src="self-improvement-black-48-dp.png" alt="" class="image">
+			</div>
+			<div class="text">
+				<div class="text1"><p class="txt1" style="font-family: 'Avenir Next Cyr Thin';">Класний керівник</p></div>
+				<div class="text2"><p class="txt2" style="font-family: 'Avenir Next Cyr Thin';">Іванов Іван Іванович</p></div>
+			</div>
 		</div>
 		<div class="block"></div>
 		<div class="block"></div>
