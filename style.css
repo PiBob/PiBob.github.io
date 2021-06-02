@@ -13,6 +13,7 @@ body{
 *{
 	padding: 0;
 	margin: 0;
+	font-size: 18px;
 }
 
 header{
@@ -49,7 +50,6 @@ a{
 li{
 	float: left;
 	padding: 10px 45px;	
-	font-size: 18px;
 }
 a:hover{
 	color: #e8b32e;
@@ -59,8 +59,8 @@ footer{
 	width: 100%;
 	height: 110px;
 	background-color: #40464f;
-	position: absolute;
-	bottom: 0;
+
+	
 }
 .logo-footer{
 	position: absolute;
@@ -68,12 +68,11 @@ footer{
 	margin-top: 20px;
 }
 .footer-title{
-	position: absolute;
 	color: #9aa2ac;
-	margin-top: 20px;
+	position: relative;
+	bottom: -80px;
+	margin-left: 580px;
 	font-size: 10px;
-	text-align: center;
-	top: 50px;
 }
 
 
