@@ -74,6 +74,9 @@ footer{
 	margin-left: 580px;
 	font-size: 10px;
 }
+.hover-a:hover{
+	border: 0px solid white;
+}
 
 
 
