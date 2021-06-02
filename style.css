@@ -84,6 +84,8 @@ footer{
 }
 .middle-part{
 	min-height: 970px;
+	width: 960px;
+	margin: auto;
 }
 
 
