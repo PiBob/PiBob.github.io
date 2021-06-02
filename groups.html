@@ -97,7 +97,7 @@
 			<tr><th></th><th colspan="2"><p class="sorting">Сортувати за : <select><option>Замовченням</option><option>Зростанням</option><option>Спаданням</option></select></p></th></tr>
 			<tr><td class="tr-title">Назви групи</td><td class="tr-title">ПІБ класного керівника</td><td>Кількість учнів</td></tr>
 			<tr>
-				<td id="group">група</td>
+				<td id="group">123</td>
 				<td>прізвище</td>
 				<td class="h-item">к-лк учн </td>
 			</tr>
@@ -176,7 +176,11 @@
 	<script type="text/javascript">
 		$('document').ready(() => {
         $.get('https://alexmarchukprod.com.ua/groups', function(data){
-        	console.log(data) 
+        	console.log(data[1].title)
+        	$().innerText = data[1].title; 
+
+        	
+
         	
         })
     })
