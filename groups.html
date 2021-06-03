@@ -25,15 +25,15 @@
 		}
 		.icon{
 			background: url(search-white-48-dp.svg) no-repeat center ;
-			height: 50.25px;
+			height: 50px;
 			width: 45px;
-			position: absolute;
+			position: relative;
 			background-color: #ffffff;
 			border: 0px;
-			top: 149px;
-			left: 165px;
 			border-radius: 5px 0px 0px 5px;
 			box-shadow: 0 1px 0px 0 #bcc1c8;
+			top: 56px;
+			left: 13px;
 
 		}
 		table{
@@ -42,12 +42,10 @@
 			box-shadow: 0 1px 2px 0 #bcc1c8;
 		}
 		tr,td{
-			padding: 15px 100px;
+			padding: 11px 100px;
 			font-weight: normal;
 			border-top: 1px solid #bcc1c8;
-		}
-		th{
-			padding: 0px;
+			height: 20px;
 		}
 		.sorting{
 			margin-left: 200px;
@@ -63,14 +61,37 @@
 		.h-item{
 			background: url(expand-more-white-48-dp.svg) no-repeat center right;
 		}
+		.list-group{
+			display: flex;
+			flex-direction: column;
+			list-style-type: none;
+			padding: 10px;
+			background-color: white;
+			width: 265px;
+		}
+		.list-PIB{
+			display: flex;
+			flex-direction: column;
+			list-style-type: none;
+			padding: 10px;
+			background-color: white;
+			width: 265px;
+
+		}
+		.td-img{
+			position: relative;
+			left: 120px;
+				}
 		tr:hover{
-			background-color: #f4f5f6;
+		    background-color: #f4f5f6;
 		}	
 		tr:hover td:first-child{
 			border-left: 3px solid orange;
 			background-color: #f4f5f6;
 		}
 
+
+		
 		
 
 		</style>
@@ -92,80 +113,10 @@
 	</header>
 	<div class="middle-part">
 		<p class="top-title">Групи</p>
-		<input type="button" class="icon"><input class="find-input" type="search" name="" placeholder="Пошук...">
-		<table>
+		<div class="search-bar"><input type="button" class="icon" ><input class="find-input" type="search" name="" placeholder="Пошук..."></div>
+		<table id="api-ajax">
 			<tr><th></th><th colspan="2"><p class="sorting">Сортувати за : <select><option>Замовченням</option><option>Зростанням</option><option>Спаданням</option></select></p></th></tr>
 			<tr><td class="tr-title">Назви групи</td><td class="tr-title">ПІБ класного керівника</td><td>Кількість учнів</td></tr>
-			<tr>
-				<td id="group">123</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн </td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
-			<tr>
-				<td>група</td>
-				<td>прізвище</td>
-				<td class="h-item">к-лк учн</td>
-			</tr>
 		</table>
 	</div>
 	<footer>
@@ -175,15 +126,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 	<script type="text/javascript">
 		$('document').ready(() => {
-        $.get('https://alexmarchukprod.com.ua/groups', function(data){
-        	console.log(data[1].title)
-        	$().innerText = data[1].title; 
+        $.get('https://alexmarchukprod.com.ua/groups', function(data) {
+            data.forEach((item) => {
+            	const strg = document.createElement('tr')
+            	strg.classList.add('strg');
+            	strg.innerHTML=`<td>${item.title}</td> <td>${item.formMaster.surname} ${item.formMaster.name} ${item.formMaster.patronymic}</td> <td>${item.students.length} <img src="expand-more-white-48-dp.svg" class="td-img"></td> `;
+            	$('#api-ajax').append(strg);
 
-        	
-
-        	
+            })
         })
     })
+            		
+                        
 
 	</script>
 	
