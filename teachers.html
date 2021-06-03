@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang=uk>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Teachers</title>
+	<style type="text/css">
+
+		.top-title{
+			font-size: 36px;
+			color: #212121;
+			margin-bottom: 40px;
+		}
+		.find-input{
+			width: 908px;
+  			height: 50px;
+  			background-color: #ffffff;
+  			color:  #bcc1c8;
+  			margin-left: 58.5px;
+  			border: 0px;
+  			margin-bottom: 40px;
+  			border-radius: 0px 5px 5px 0px;
+  			box-shadow: 0 1px 2px 0 #bcc1c8;
+		}
+		.icon{
+			background: url(search-white-48-dp.svg) no-repeat center ;
+			height: 50px;
+			width: 45px;
+			position: relative;
+			background-color: #ffffff;
+			border: 0px;
+			border-radius: 5px 0px 0px 5px;
+			box-shadow: 0 1px 0px 0 #bcc1c8;
+			top: 54.5px;
+			left: 14px;
+
+		}
+		table{
+			background-color: #ffffff;
+			border-radius: 5px;
+			box-shadow: 0 1px 2px 0 #bcc1c8;
+			width: 960px;
+		}
+		tr,td{
+			padding: 11px 100px;
+			font-weight: normal;
+			border-top: 1px solid #bcc1c8;
+			height: 20px;
+		}
+		.sorting{
+			margin-left: 200px;
+			color: #5c6470;
+		}
+		select{
+			border:0px;
+			color: #5c6470;
+		}
+		option{
+			color: #5c6470;
+		}
+		.h-item{
+			background: url(expand-more-white-48-dp.svg) no-repeat center right;
+		}
+		.list-group{
+			display: flex;
+			flex-direction: column;
+			list-style-type: none;
+			padding: 10px;
+			background-color: white;
+			width: 265px;
+		}
+		.list-PIB{
+			display: flex;
+			flex-direction: column;
+			list-style-type: none;
+			padding: 10px;
+			background-color: white;
+			width: 265px;
+
+		}
+		.td-img{
+			position: relative;
+			left: 120px;
+				}
+		tr:hover{
+		    background-color: #f4f5f6;
+		}	
+		tr:hover td:first-child{
+			border-left: 3px solid orange;
+			background-color: #f4f5f6;
+		}
+
+
+		
+		
+
+		</style>
+</head>
+
+<body bgcolor="#f4f5f6">
+	<header>
+			<a href=""><img src="logo.png" alt="" class="logo-header"></a>
+			<div class="header-title">
+				<p style="font-size: 18px;">Довідник наукового ліцею «Політ»</p>
+			</div>
+			<div class="header-menu">
+				<ul class="menu">
+					<li><a href="" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Головна</a></li>
+					<li><a href="" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Групи</a></li>
+					<li><a href="" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Учителі</a></li>
+					<li><a href="" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Контакти</a></li>
+				</ul>
+			</div>
+	</header>
+	<div class="middle-part">
+		<p class="top-title">Учителі</p>
+		<div class="search-bar"><input type="button" class="icon" ><input class="find-input" type="search" name="" placeholder="Пошук..."></div>
+		<table id="api-ajax">
+			<tr><td>Фото</td><td class="tr-title" colspan="3">ПІБ</td><td></td></tr>
+		</table>
+	</div>
+	<footer>
+		<img src="logo.png" alt="" class="logo-footer">
+		<p style="font-family: 'Avenir Next Cyr Thin'" class="footer-title">© Веб-сайт «Довідник наукового ліцею «Політ», 2021. Усі права захищені.</p>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$('document').ready(() => {
+        $.get('https://alexmarchukprod.com.ua/teachers', function(data) {
+            data.forEach((item) => {
+            	const strg = document.createElement('tr')
+            	strg.classList.add('strg');
+            	console.log(item.photo)
+            	strg.innerHTML=`<td><img src="${item.photo}"></td> <td>${item.formMaster.surname} ${item.formMaster.name} ${item.formMaster.patronymic}</td> <td>${item.students.length} <img src="expand-more-white-48-dp.svg" class="td-img"></td> `;
+            	$('#api-ajax').append(strg);
+
+            })
+        })
+    })
+            		
+                        
+
+	</script>
+	
+</body>
+</html>
