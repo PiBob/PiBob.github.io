@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NoResultsExample</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.pic-group-item{
+			float: right;
+		}
+		.find-input{
+			width: 908px;
+  			height: 50px;
+  			background-color: #ffffff;
+  			color:  #bcc1c8;
+  			margin-left: 58.5px;
+  			border: 0px;
+  			margin-bottom: 40px;
+  			border-radius: 0px 5px 5px 0px;
+  			box-shadow: 0 1px 2px 0 #bcc1c8;
+		}
+		.icon{
+			background: url(search-white-48-dp.svg) no-repeat center ;
+			height: 50px;
+			width: 45px;
+			position: relative;
+			background-color: #ffffff;
+			border: 0px;
+			border-radius: 5px 0px 0px 5px;
+			box-shadow: 0 1px 0px 0 #bcc1c8;
+			top: 54.5px;
+			left: 14px;
+
+		}
+		.sorting{
+			margin-left: 200px;
+			color: #5c6470;
+		}
+		table{
+			background-color: #ffffff;
+			border-radius: 5px;
+			box-shadow: 0 1px 2px 0 #bcc1c8;
+			width: 960px;
+		}
+		tr,td{
+			padding: 11px 100px;
+			font-weight: normal;
+			border-top: 1px solid #bcc1c8;
+			height: 20px;
+		}
+		.not-found{
+			font-family: 'Avenir Next Cyr Thin';
+			font-size: 18px;
+			color: #5c6470;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<header>
+			<a href="index.html"><img src="logo.png" alt="" class="logo-header"></a>
+			<div class="header-title">
+				<p style="font-size: 18px;">Довідник наукового ліцею «Політ»</p>
+			</div>
+			<div class="header-menu">
+				<ul class="menu">
+					<li><a href="index.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Головна</a></li>
+					<li><a href="groups.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Групи</a></li>
+					<li><a href="teachers.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Учителі</a></li>
+					<li><a href="contacts.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Контакти</a></li>
+				</ul>
+			</div>
+	</header>
+	<div class="middle-part">
+		<h1>Групи</h1>
+		<input type="button" class="icon"><input class="find-input" type="search" name="" placeholder="Пошук..." style="font-family: 'Avenir Next Cyr Thin';">
+		<table id="api-ajax">
+			<tr>
+				<th></th>
+				<th colspan="2">
+					<p class="sorting" style="font-family: 'Avenir Next Cyr Thin';">Сортувати за : 
+						<select>
+							<option style="font-family: 'Avenir Next Cyr Thin';">Замовченням</option>
+							<option style="font-family: 'Avenir Next Cyr Thin';">Зростанням</option>
+							<option style="font-family: 'Avenir Next Cyr Thin';">Спаданням</option>
+						</select>
+					</p>
+				</th>
+			</tr>
+			<tr>
+				<td class="tr-title" style="font-family: 'Avenir Next Cyr Thin';">Назви групи</td>
+				<td class="tr-title" style="font-family: 'Avenir Next Cyr Thin';">ПІБ класного керівника</td>
+				<td style="font-family: 'Avenir Next Cyr Thin';">Кількість учнів</td>
+			</tr>
+			<tr>
+				<td colspan="3" class="not-found">Даних не знайдено</td>
+			</tr>
+		</table>
+	</div>
+	<footer>
+		<a href="index.html"><img src="logo.png" alt="" class="logo-footer"></a>
+		<p style="font-family: 'Avenir Next Cyr Thin'" class="footer-title">© Веб-сайт «Довідник наукового ліцею «Політ», 2021. Усі права захищені.</p>
+	</footer>
+</body>
+</html>
