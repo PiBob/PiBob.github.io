@@ -46,7 +46,7 @@
 			margin-left: 30px;
 			margin-top: 40px;
 			margin-bottom: 40px;
-			font-size: 36px;
+			font-size: 25px;
 			font-family: Ledger;
   
 			  font-weight: normal;
@@ -191,7 +191,7 @@
 			margin-left:125px;
 			margin-bottom:20px;
 			color: #25282d;
-			font-size: 21px;
+			font-size: 18px;
 			font-family: AvenirNextCyr;
 			  
 			  font-weight: normal;
@@ -202,7 +202,7 @@
 		}
 		.fact1{
 			color: #25282d;
-			font-size: 21px;
+			font-size: 18px;
 			margin-left:125px;
 			margin-bottom:10px;
 			font-family: AvenirNextCyr;
@@ -234,7 +234,7 @@
 		<a href="Group_item.html"><img src="west-black-48-dp.png" srcset="west-black-48-dp@2x.png 2x,west-black-48-dp@3x.png 3x" class="strela"></a>
 		<a href="Group_item.html"><p style="color: #e8b32e; font-family: 'Avenir Next Cyr Thin'; margin-bottom: 30px;" class="hover-a">Повернутися до групи</p></a>
 		<div class="name">
-			<p class="im">Петров Петро Петрович</p>
+			<p class="im" id="im"></p>
 			<img src="pic-pupil-item.png"srcset="pic-pupil-item@2x.png 2x,pic-pupil-item@3x.png 3x"
      class="Pic_pupil_item">
 		</div>
@@ -243,45 +243,30 @@
 			<div class="first">
 				<img src="cake-black-48-dp.svg" class="image">
 				<p class="t1" style="font-family: 'Avenir Next Cyr Thin';">Дата народження</p>
-				<p class="f1" style="font-family: 'Avenir Next Cyr Thin';">01.01.1998</p>
 			</div>
 			<div class="second">
 				<img src="email-black-48-dp.svg" class="image">
 				<p class="t1" style="font-family: 'Avenir Next Cyr Thin';">Електронна пошта</p>
-				<p class="f1" style="font-family: 'Avenir Next Cyr Thin';">example@example.com</p>
 			</div>
 			<div class="third">
 				<img src="thumb-up-alt-black-48-dp.svg" class="image">
 				<p class="t1" style="font-family: 'Avenir Next Cyr Thin';">Улюблений предмет</p>
-				<p class="f1" style="font-family: 'Avenir Next Cyr Thin';">Фізкультура</p>
 			</div>
 			<div class="fourth">
 				<img src="text-snippet-black-48-dp.svg" class="image2">
-				<p class="t12" style="font-family: 'Avenir Next Cyr Thin';">Короткий опис про себе</p>
-				<p class="f12" style="font-family: 'Avenir Next Cyr Thin';">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. </p>
+				<p class="t12" style="font-family: 'Avenir Next Cyr Thin';">Короткий опис про себе</p></p>
 			</div>
 			<div class="fifth">
 				<img src="school-black-48-dp.svg" class="image2">
 				<p class="t12" style="font-family: 'Avenir Next Cyr Thin';">Школа олімпійського резерву</p>
-				<p class="fact" style="font-family: 'Avenir Next Cyr Thin';">Факультив 1</p>
-				<p class="fact" style="font-family: 'Avenir Next Cyr Thin';">Факультив 2</p>
 			</div>
  			 <div class="sixth">
  			 	<img src="sentiment-satisfied-black-48-dp.svg" class="image3">
  			 	<p class="t12" style="font-family: 'Avenir Next Cyr Thin';">Список інтересів</p>
- 			 	<p class="fact1" style="font-family: 'Avenir Next Cyr Thin';">Назва 1</p>
-				<p class="fact1" style="font-family: 'Avenir Next Cyr Thin';">Назва 2</p>
-				<p class="fact1" style="font-family: 'Avenir Next Cyr Thin';">Назва 3</p>
  			 </div>
  			 <div class="seventh">
  			 	<img src="workspace-premium-black-48-dp.svg" class="image3">
  			 	<p class="t12" style="font-family: 'Avenir Next Cyr Thin';">Досягнення</p>
- 			 	<p class="fact1" style="font-family: 'Avenir Next Cyr Thin';">Назва 1</p>
-				<p class="fact1" style="font-family: 'Avenir Next Cyr Thin';">Назва 2</p>
-				<p class="fact1" style="font-family: 'Avenir Next Cyr Thin';">Назва 3</p>
  			 </div>
 				
 	</div>
@@ -289,5 +274,33 @@
 					<p style="font-family: 'Avenir Next Cyr Thin'" class="footer-title">© Веб-сайт «Довідник наукового ліцею «Політ», 2021. Усі права захищені.</p>
 		        <img src="logo.png" alt="" class="logo-footer">
 		    	</footer>
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+		    <script type="text/javascript">
+		    	c = sessionStorage.getItem('number3');
+        	   $.get('https://alexmarchukprod.com.ua/student?id='+ c, function(data) {
+        	   	console.log(data)
+        	   	name = `<p class="im">${data.surname} ${data.name} ${data.patronymic}</p>`
+        	   	$('.name').append(name)
+        	   	birthday = `<p class="f1" style="font-family: 'Avenir Next Cyr Thin';">${data.birthday}</p>`
+        	   	$('.first').append(birthday)
+        	   	email = `<p class="f1" style="font-family: 'Avenir Next Cyr Thin';">${data.email}</p>`
+        	   	$('.second').append(email)
+        	   	favoriteSubject = `<p class="f1" style="font-family: 'Avenir Next Cyr Thin';">${data.favoriteSubject}</p>`
+        	   	$('.third').append(favoriteSubject)
+        	   	description = `<p class="f12" style="font-family: 'Avenir Next Cyr Thin';">${data.description}</p>`
+        	   	$('.fourth').append(description)
+        	   	olympicReserve = `<p class="fact" style="font-family: 'Avenir Next Cyr Thin';">${data.olympicReserve}</p>`
+        	   	$('.fifth').append(olympicReserve)
+        	   	interests = `<p class="fact" style="font-family: 'Avenir Next Cyr Thin';">${data.interests[0]}</p> <p class="fact" style="font-family: 'Avenir Next Cyr Thin';">${data.interests[1]}</p><p class="fact" style="font-family: 'Avenir Next Cyr Thin';"> ${data.interests[2]}</p>`
+        	   	$('.sixth').append(interests)
+        	   	achievements = `<p class="fact" style="font-family: 'Avenir Next Cyr Thin';">${data.achievements[0]}</p> <p class="fact" style="font-family: 'Avenir Next Cyr Thin';">${data.achievements[1]}</p><p class="fact" style="font-family: 'Avenir Next Cyr Thin';"></p>`
+        	   	$('.seventh').append(achievements)
+        	   	
+        	 	$('.photo').setAttribute('background:url', data.photo)
+
+        	   })
+            	
+  			
+		    </script>
 </body>
 </html>

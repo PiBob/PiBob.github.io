@@ -124,18 +124,29 @@
 		$('document').ready(() => {
         $.get('https://alexmarchukprod.com.ua/groups', function(data) {
             data.forEach((item) => {
-            	const strg = document.createElement('tr')
+            	var strg = document.createElement('tr')
             	strg.classList.add('strg');
-            	strg.innerHTML=`<td style="font-family: 'Avenir Next Cyr Thin';">${item.title}</td> <td style="font-family: 'Avenir Next Cyr Thin';">${item.formMaster.surname} ${item.formMaster.name} ${item.formMaster.patronymic}</td> <td style="font-family: 'Avenir Next Cyr Thin';">${item.students.length} <a href="Group_item.html" class="hover-a"><img src="expand-more-white-48-dp.svg" class="td-img"></a></td> `;
+            	console.log(data);
+            	strg.innerHTML = `<td style="font-family: 'Avenir Next Cyr Thin';">${item.title}</td> <td style="font-family: 'Avenir Next Cyr Thin';">${item.formMaster.surname} ${item.formMaster.name} ${item.formMaster.patronymic}</td> <td style="font-family: 'Avenir Next Cyr Thin';">${item.students.length} <a href="Group_item.html" class="hover-a"><img src="expand-more-white-48-dp.svg" class="td-img"></a></td> `;
+            	var getIdGroup = item.id;
+            	strg.setAttribute('onclick','toGroupItem('+ getIdGroup +');');
             	$('#api-ajax').append(strg);
 
             })
         })
     })
+	function toGroupItem(id){
+		console.log(id)
+		 sessionStorage.setItem('number',id);
+		a = sessionStorage.getItem('number');
+		document.location.href = 'Group_item.html'
+	}
+		
             		
                         
 
 	</script>
+	}
 	
 </body>
 </html>

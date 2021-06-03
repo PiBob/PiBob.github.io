@@ -51,7 +51,7 @@
 		}
 		.second-block{
 			width: 540px;
-			height: 127px;
+			height: 157px;
 			border-radius: 5px;
 			box-shadow: 0 1px 2px 0 #bcc1c8;
 			background-color: white;
@@ -92,6 +92,26 @@
   			border-radius: 0px 5px 5px 0px;
   			box-shadow: 0 1px 2px 0 #bcc1c8;
 		}
+		table{
+			background-color: #ffffff;
+			border-radius: 5px;
+			box-shadow: 0 1px 2px 0 #bcc1c8;
+			width: 960px;
+		}
+		tr,td{
+			padding: 11px 100px;
+			font-weight: normal;
+			border-top: 1px solid #bcc1c8;
+			height: 20px;
+  			transition: 0.5s;
+		}
+		tr:hover{
+		    background-color: #f4f5f6;
+		}	
+		tr:hover td:first-child{
+			border-left: 3px solid orange;
+			background-color: #f4f5f6;
+		}
 	</style>
 </head>
 <body>
@@ -110,7 +130,7 @@
 			</div>
 	</header>
 	<div class="middle-part">
-		<h1>Група ХХ-ХХ-ХХ</h1>
+		<div class="group"></div>
 		<div class="top-part">
 			<div class="first-block">
 				<div class="img-block">
@@ -121,7 +141,6 @@
 						<p class="txt1" style="font-family: 'Avenir Next Cyr Thin';">Класний керівник</p>
 					</div>
 					<div class="text2">
-						<p class="txt2" style="font-family: 'Avenir Next Cyr Thin';">Іванов Іван Іванович</p>
 					</div>
 				</div>
 				<div class="image-block">
@@ -137,8 +156,7 @@
 					<div class="text1">
 						<p class="txt1" style="font-family: 'Avenir Next Cyr Thin';">Кількість учнів</p>
 					</div>
-					<div class="text2">
-						<p class="txt2" style="font-family: 'Avenir Next Cyr Thin';">20</p>
+					<div class="quant">
 					</div>
 				</div>
 			</div>
@@ -153,8 +171,7 @@
 					<div class="text1">
 						<p class="txt1" style="font-family: 'Avenir Next Cyr Thin';">Профіль (напрямок навчання)</p>
 					</div>
-					<div class="text2">
-						<p class="txt2" style="font-family: 'Avenir Next Cyr Thin';">Фізико-математичний</p>
+					<div class="specialization">
 					</div>
 				</div>
 			</div>
@@ -164,27 +181,67 @@
 					<img src="text-snippet-black-48-dp.png" alt="" class="image">
 				</div>
 				<div class="text">
-					<div class="text1">
+					<div class="text">
 						<p class="txt1" style="font-family: 'Avenir Next Cyr Thin';">Предмети для поглибленого вивчення</p>
 					</div>
-					<div class="text2">
-						<p class="txt2" style="font-family: 'Avenir Next Cyr Thin';">Предмет 1</p>
+					<div class="advancedSubjects1">
+						
 					</div>
-					<div class="text3">
-						<p class="txt3" style="font-family: 'Avenir Next Cyr Thin';">Предмет 2</p>
+					<div class="advancedSubjects2">
+						
 					</div>
-					<div class="text4">
-						<p class="txt4" style="font-family: 'Avenir Next Cyr Thin';">Предмет 3</p>
+					<div class="advancedSubjects3">
 					</div>
 				</div>
 			</div>
 		</div>
 		<h1 style="margin-top: 80px;">Учні</h1>
 		<input type="button" class="icon"><input class="find-input" type="search" name="" placeholder="Пошук...">
+		<table id="api-ajax">
+			<tr><td style="font-family: 'Avenir Next Cyr Thin';">Фото</td><td class="tr-title" colspan="3" style="font-family: 'Avenir Next Cyr Thin';">ПІБ</td></tr>
+		</table>
 	</div>
 	<footer>
-		<a href="index.html"><img src="logo.png" alt="" class="logo-footer"></a>
+		<a href=""><img src="logo.png" alt="" class="logo-footer"></a>
 		<p style="font-family: 'Avenir Next Cyr Thin'" class="footer-title">© Веб-сайт «Довідник наукового ліцею «Політ», 2021. Усі права захищені.</p>
 	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+	<script type="text/javascript">
+		var id = sessionStorage.getItem('number');
+		$.get('https://alexmarchukprod.com.ua/group?id='+ id, function(data) {
+            	group = `<h1>${data.title} </h1>`
+            	$('.group').append(group); 
+            	fullMaster = `<p class="txt2" style="font-family: 'Avenir Next Cyr Thin'">${data.formMaster.surname} ${data.formMaster.name} ${data.formMaster.patronymic}</p>`     	
+            	$('.text2').append(fullMaster);
+            	quant = `<p class="txt2" style="font-family: 'Avenir Next Cyr Thin'"> ${data.students.length}`
+            	$('.quant').append(quant);
+            	specialization = `<p class="txt2" style="font-family: 'Avenir Next Cyr Thin'"> ${data.specialization}`
+            	$('.specialization').append(specialization)
+            	advancedSubjects1 = `<p class="txt2" style="font-family: 'Avenir Next Cyr Thin'"> ${data.advancedSubjects[0]}`
+            	$('.advancedSubjects1').append(advancedSubjects1)
+            	advancedSubjects2 = `<p class="txt2" style="font-family: 'Avenir Next Cyr Thin'"> ${data.advancedSubjects[1]}`
+            	$('.advancedSubjects2').append(advancedSubjects2)
+            	advancedSubjects3 = `<p class="txt2" style="font-family: 'Avenir Next Cyr Thin'"> ${data.advancedSubjects[2]}`
+            	$('.advancedSubjects3').append(advancedSubjects3)
+
+        	console.log(data.students);
+            data.students.forEach((item) => {
+            	var strg = document.createElement('tr')
+            	strg.classList.add('strg');
+            	console.log(data);
+            	strg.innerHTML = `<td><img class="avatar" src="avatar.webp"></td> <td>${item.surname} ${item.name} ${item.patronymic}</td>`;
+            	var getIdGroup = item.id;
+            	strg.setAttribute('onclick','toGroupItem('+ getIdGroup +');');
+            	$('#api-ajax').append(strg);
+
+            })
+        })
+        function toGroupItem(id){
+		console.log(id)
+		 sessionStorage.setItem('number3',id);
+		c = sessionStorage.getItem('number3');
+		document.location.href = 'Pupil_item.html'
+	}     
+	</script>
 </body>
 </html>
