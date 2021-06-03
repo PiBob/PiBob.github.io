@@ -46,6 +46,7 @@
 			font-weight: normal;
 			border-top: 1px solid #bcc1c8;
 			height: 20px;
+			transition: 0.5s;
 		}
 		.sorting{
 			margin-left: 200px;
@@ -101,17 +102,17 @@
 				<ul class="menu">
 					<li><a href="index.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Головна</a></li>
 					<li><a href="groups.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Групи</a></li>
-					<li><a href="" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Учителі</a></li>
+					<li><a href="teachers.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Учителі</a></li>
 					<li><a href="contacts.html" style="font-family: 'Avenir Next Cyr Thin';" class="point-menu">Контакти</a></li>
 				</ul>
 			</div>
 	</header>
 	<div class="middle-part">
 		<p class="top-title">Групи</p>
-		<div class="search-bar"><input type="button" class="icon" ><input class="find-input" type="search" name="" placeholder="Пошук..."></div>
+		<div class="search-bar"><input type="button" class="icon" ><input class="find-input" type="search" name="" placeholder="Пошук..." style="font-family: 'Avenir Next Cyr Thin';"></div>
 		<table id="api-ajax">
-			<tr><th></th><th colspan="2"><p class="sorting">Сортувати за : <select><option>Замовченням</option><option>Зростанням</option><option>Спаданням</option></select></p></th></tr>
-			<tr><td class="tr-title">Назви групи</td><td class="tr-title">ПІБ класного керівника</td><td>Кількість учнів</td></tr>
+			<tr><th></th><th colspan="2"><p class="sorting" style="font-family: 'Avenir Next Cyr Thin';">Сортувати за : <select><option style="font-family: 'Avenir Next Cyr Thin';">Замовченням</option><option style="font-family: 'Avenir Next Cyr Thin';">Зростанням</option><option style="font-family: 'Avenir Next Cyr Thin';">Спаданням</option></select></p></th></tr>
+			<tr><td class="tr-title" style="font-family: 'Avenir Next Cyr Thin';">Назви групи</td><td class="tr-title" style="font-family: 'Avenir Next Cyr Thin';">ПІБ класного керівника</td><td style="font-family: 'Avenir Next Cyr Thin';">Кількість учнів</td></tr>
 		</table>
 	</div>
 	<footer>
@@ -125,7 +126,7 @@
             data.forEach((item) => {
             	const strg = document.createElement('tr')
             	strg.classList.add('strg');
-            	strg.innerHTML=`<td>${item.title}</td> <td>${item.formMaster.surname} ${item.formMaster.name} ${item.formMaster.patronymic}</td> <td>${item.students.length} <img src="expand-more-white-48-dp.svg" class="td-img"></td> `;
+            	strg.innerHTML=`<td style="font-family: 'Avenir Next Cyr Thin';">${item.title}</td> <td style="font-family: 'Avenir Next Cyr Thin';">${item.formMaster.surname} ${item.formMaster.name} ${item.formMaster.patronymic}</td> <td style="font-family: 'Avenir Next Cyr Thin';">${item.students.length} <a href="" class="hover-a"><img src="expand-more-white-48-dp.svg" class="td-img"></a></td> `;
             	$('#api-ajax').append(strg);
 
             })
